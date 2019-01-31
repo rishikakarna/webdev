@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jquery</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+    // this function is called by jquery when DOM is ready
+    $(function () {
+
+      $(".up").click(function () {
+        var row = $(this).closest("tr");    //goes to closest tr
+
+        var prevrow = row.prev();
+
+        row.insertBefore(prevrow);           //insert above
+      })
+
+      $(".down").click(function () {
+        var row = $(this).closest("tr");    //goes to closest tr
+
+        var nextrow = row.next();
+
+        row.insertAfter(nextrow);       
+      })
+
+    })
+  </script>
+</head>
+
+<body>
+  <h1>Welcome to JQuery</h1>
+
+  <table align="center" border="1">
+    <thead>
+      <th>Empno</th>
+      <th>Name</th>
+      <th>Move</th>
+    </thead>
+    <tbody style="text-align: center;">
+      <tr>
+        <td>1001</td>
+        <td>BLASTOISE</td>
+        <td>
+          <a href="#" class="up">&#x2191;</a>
+          <a href="#" class="down">&#x2193;</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>1002</td>
+        <td>PIKACHU</td>
+        <td>
+          <a href="#" class="up">&#x2191;</a>
+          <a href="#" class="down">&#x2193;</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>1003</td>
+        <td>CHARMENDAR</td>
+        <td>
+          <a href="#" class="up">&#x2191;</a>
+          <a href="#" class="down">&#x2193;</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>1004</td>
+        <td>BLABASAUR</td>
+        <td>
+          <a href="#" class="up">&#x2191;</a>
+          <a href="#" class="down">&#x2193;</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>1005</td>
+        <td>MR.MIME</td>
+        <td>
+          <a href="#" class="up">&#x2191;</a>
+          <a href="#" class="down">&#x2193;</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>1006</td>
+        <td>CHARLIZARD</td>
+        <td>
+          <a href="#" class="up">&#x2191;</a>
+          <a href="#" class="down">&#x2193;</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>1007</td>
+        <td>MAGMA</td>
+        <td>
+          <a href="#" class="up">&#x2191;</a>
+          <a href="#" class="down">&#x2193;</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>1008</td>
+        <td>MACHOP</td>
+        <td>
+          <a href="#" class="up">&#x2191;</a>
+          <a href="#" class="down">&#x2193;</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>

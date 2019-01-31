@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- works on edge -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AJAX DEMO</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+    // this function is called by jquery when DOM is ready
+    $(function () {
+      $("#loadbtn").click(function () {
+        $.ajax({                //ajax()--helps to communicate with server
+          url: "straw_Hats.json",
+          type: "GET",
+          dataType: "json",
+          timeout: 3000,       //how much time server wait to get the data in ms
+          beforeSend: function () {
+            //code for animation of please wait..here
+          },
+          complete: function () {
+            //code for stopping animation here
+          },
+          // error:function(){}
+          success: function (response) {    //call when no probs occur
+            // alert(JSON.stringify(response));
+            $.each(response, function (index, crew) {
+              var row = $("<tr/>");
+              var col1 = $("<td/>").text(crew.crewno);
+              var col2 = $("<td/>").text(crew.name);
+              var col3 = $("<td/>").text(crew.bounty);
+              row.append(col1);
+              row.append(col2);
+              row.append(col3);
+              $("#tbl").append(row);
+            })
+          }
+        })
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <button id="loadbtn">Load Straw Hats</button>
+  <table id="tbl">
+
+  </table>
+</body>
+
+</html>

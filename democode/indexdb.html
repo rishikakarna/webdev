@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Index DB</title>
+  </head>
+  <body>
+    <h1>TODO App</h1>
+    <form>
+      What is it that you want to do? 
+      <input type="text" id="todoText" /> <br /><br />
+      Enter the deadline for completing the task
+      <input type="text" id="todoDeadline" /> <br /><br />
+      <input type="button" value="Add" onclick="saveToDo()" />
+    </form>
+    <script>
+      function saveToDo(event) {
+        // event.preventDefault();   //disable default behavior of submit event
+
+        var todoText = document.getElementById("todoText").value;
+        var todoDeadline = document.getElementById("todoDeadline").value;
+
+        var todoObj = {
+          text: todoText,
+          deadline: todoDeadline
+        };
+        // alert(JSON.stringify(todoObj));
+
+        //now the code to store it in the database
+        var db = window.indexedDB.open("todo-db", 123); //(db_name,version)
+        //db intialization
+        db.onupgradeneeded = function(evt) {
+          var result = evt.currentTarget.result;
+
+          if(result.objectStoreNames.contains("todos"))
+          result.deleteObjectStore("todos")
+          result.createObjectStore("todos", {keyPath: "text"}); //primary key
+        };
+
+        //store data in object store
+        db.onsuccess = function(evt) {
+        var transaction = db.result.transaction("todos", "readwrite");
+        var store = transaction.objectStore("todos");
+        store.put(todoObj); //this is like insert in the table
+        }
+      }
+    </script>
+  </body>
+</html>

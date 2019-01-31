@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jquery</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+    // this function is called by jquery when DOM is ready
+    $(function () {
+      //using jquery DOM traversal
+      // $("#products").find("li").css("color", "red");   //apply to every li
+      $("#products").children("li").css("color", "red");  //apply to tyhe specific child...
+      $("#products").find("li").first().css("color", "red");    //find li then apply to first list
+      $("li").last().prev().prev().css("color", "blue");    //goes to last li then by 2 x prev it comes to 3rd last li
+      $("li").first().parent().hide();    // goes to laptop then parent means products then hide whole products block
+    })
+  </script>
+</head>
+
+<body>
+  <h1>Welcome to JQuery</h1>
+  <ul id="products">
+    <li>Laptop</li>
+    <li>Mobile</li>
+    <ul>
+      <li>Apple</li>
+      <li>Samsung</li>
+      <li>Sony</li>
+    </ul>
+  </ul>
+
+  <ul id="services">
+    <li>Email</li>
+    <li>SMS</li>
+    <li>Chat</li>
+  </ul>
+
+
+</body>
+
+</html>

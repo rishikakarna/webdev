@@ -1,0 +1,27 @@
+[
+  {
+    "crewno": "1",
+    "name": "Luffy",
+    "bounty": 1500000.0
+  },
+  {
+    "crewno": "2",
+    "name": "Zoro",
+    "bounty": 100000.0
+  },
+  {
+    "crewno": "3",
+    "name": "Sanji",
+    "bounty": 500000.0
+  },
+  {
+    "crewno": "4",
+    "name": "Ussop",
+    "bounty": 250000.0
+  },
+  {
+    "crewno": "5",
+    "name": "Nami",
+    "bounty": 90000.0
+  }
+]

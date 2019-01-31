@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+    // this function is called by jquery when DOM is ready
+    $(function () {
+      $("button").click(function () {
+        //creating new DOM
+        var productElem = $(this).closest(".product");
+        var price = (productElem).data("price");
+        var priceElem = $("<p/>").text("₹ " + price).css("color", "red");
+        productElem.append(priceElem);
+        $(this).hide();
+
+      })
+    })
+  </script>
+  <style>
+    .product {
+      padding: 15px;
+      display: inline-block;
+    }
+
+    ul {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li class="product" data-price="32,000">
+      <h2>ONE PLUS 5t</h2>
+      <button>GET PRICE</button>
+    </li>
+    <li class="product" data-price="24,000">
+      <h2>ONE PLUS 3t</h2>
+      <button>GET PRICE</button>
+    </li>
+    <li class="product" data-price="38,000">
+      <h2>ONE PLUS 6</h2>
+      <button>GET PRICE</button>
+    </li>
+    <li class="product" data-price="42,000">
+      <h2>ONE PLUS 6t</h2>
+      <button>GET PRICE</button>
+    </li>
+    <li class="product" data-price="&#9869;  haat!!!">
+      <h2>ONE PLUS 999t</h2>
+      <button>GET PRICE</button>
+    </li>
+  </ul>
+
+</body>
+
+</html>

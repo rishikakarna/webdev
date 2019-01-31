@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+    // this function is called by jquery when DOM is ready
+    $(function () {
+      $("button").click(function () {
+        //creating new DOM
+        //var priceElem = $("<p> ₹37,000 </p>");
+        var priceElem = $("<p/>").text("₹37,000").css("color", "red");
+
+        //placement of para
+        //$(".product").append(priceElem);     //append --appends to the last child //preppend--appends to the start
+        $(".product").append(priceElem);
+        // $("button").hide();
+         
+      })
+    })
+  </script>
+
+</head>
+
+<body>
+  <ul>
+    <li class="product">
+      <h2>ONE PLUS 5t</h2>
+      <button>GET PRICE</button>
+    </li>
+  </ul>
+</body>
+
+</html>
